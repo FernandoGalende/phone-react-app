@@ -2,23 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Text from './text.componet'
-
-class Contador extends Component {
-  constructor(){
-    super()
-    this.state = {contador: 1}
-   setInterval (() => {
-     this.setState({
-      contador: this.state.contador +1
-    })
-    },1000)
-  }
-  render(){
-    return(
-      <h1>{this.state.contador}</h1>
-    )
-  }
-}
+import Contador from './contador.component'
 
 
 class App extends Component {
