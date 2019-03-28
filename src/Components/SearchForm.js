@@ -7,6 +7,7 @@ export class SearchForm extends Component {
   state = {
     inputMovie: ''
   }
+
   _handleChange = (e) => {
     this.setState({inputMovie: e.target.value})
   }
@@ -15,9 +16,9 @@ export class SearchForm extends Component {
     e.preventDefault()
     const {inputMovie} = this.state
     fetch(`${BASE_URL}s=${inputMovie}`)
-    .then( res => res.json())
+    .then( res => res.json() )
     .then( results => {
-       const { Search } = results
+       const { Search=[] } = results
        this.props.onResults(Search)
     })
   }
