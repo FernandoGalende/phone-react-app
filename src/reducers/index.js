@@ -1,16 +1,21 @@
-const INITIAL_STATE = [{
+const INITIAL_STATE = {
   usedSearch: false,
-}]
+  results:[]
+}
 
-export function generalState(state = INITIAL_STATE, action) {
+export function globalState(state = INITIAL_STATE, action) {
   switch (action.type) {
     case 'TOGLE_SEARCH':
-      return state.map( state => {
-        return {
-          ...state,
-          usedSearch: !state.usedSearch
-        }
-      })
+      return {
+        ...state,
+        usedSearch: true
+      }
+
+    case 'UPDATE_SEARCH_RESULTS':
+      return {
+        ...state,
+        results: action.results
+      }
 
     default:
       return state

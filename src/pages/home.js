@@ -7,23 +7,16 @@ import { SearchForm } from '../Components/SearchForm'
 import { Title } from '../Components/Tittle.component'
 
 export class Home extends Component {
-  state = {
-    results:[]
-  }
-
-  _renderResults = () => {
-    return this.state.results.length === 0
+   _renderResults = () => {
+    return this.props.results.length === 0
       ? <small>Sorry! Not resutls</small>
       : <PhoneList
-        phones={this.state.results} />
+        phones={this.props.results} />
   }
 
   _handleResults = (results) => {
-    console.log('togle', this.props.usedSearch)
     this.props.togleSearch()
-    console.log('togle', this.props.usedSearch)
-
-    this.setState({ results })
+    this.props.updateResults(results)
   }
 
   render(){
@@ -34,7 +27,7 @@ export class Home extends Component {
             <div className="search-for--Wrapper">
               <SearchForm onResults={this._handleResults} />
             </div>
-            {this.props.usedSearch
+            {this.props.isUsedSearch
             ? this._renderResults()
             : <small>Use the form to search a movie</small>
             }
