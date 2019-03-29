@@ -29,12 +29,6 @@ export class Card extends Component {
               <p className="subtitle is-6">{year}</p>
             </div>
           </div>
-
-          {/* <div className="content">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Phasellus nec iaculis mauris. <a>@bulmaio</a>.
-            <a href="#">#css</a> <a href="#">#responsive</a>
-          </div> */}
         </div>
       </Link>
     )

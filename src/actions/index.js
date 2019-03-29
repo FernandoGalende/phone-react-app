@@ -1,5 +1,5 @@
-export const togleSearchAction = () => ({
-  type: 'TOGLE_SEARCH'
+export const toggleSearchAction = () => ({
+  type: 'TOGGLE_SEARCH'
 })
 
 export const updateSearchResults = results => ({

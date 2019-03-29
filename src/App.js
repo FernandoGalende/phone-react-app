@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Switch, Route } from 'react-router-dom'
 
 //Components
-import { Detail } from './pages/detail'
+import  DetailContainer  from './containers/detailContainer'
 import  HomeContainer  from './containers/homeContainer'
 import { NotFound } from './pages/notFound'
 
@@ -15,7 +15,7 @@ class App extends Component {
     return <div className="App">
       <Switch>
         <Route exact path="/" component={ HomeContainer } />
-        <Route path="/detail/:id" component={ Detail } />
+        <Route path="/detail/:id" component={ DetailContainer } />
         <Route component={ NotFound } />
       </Switch>
     </div>

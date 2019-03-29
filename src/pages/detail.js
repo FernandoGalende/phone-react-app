@@ -15,13 +15,11 @@ export class Detail extends Component {
     })
   }
 
-  state = { phone: {}}
-
   _fetchPhone(id){
     fetch(`${BASE_URL}i=${id.id}`)
     .then( res => res.json() )
     .then( phone => {
-      this.setState({ phone })
+      this.props.updateResult(phone)
     })
   }
 
@@ -31,7 +29,7 @@ export class Detail extends Component {
   }
 
   render(){
-    const { Title, Poster, Actors, Metascore, Plot, imdbID } = this.state.phone
+    const { Title, Poster, Actors, Metascore, Plot, imdbID } = this.props.onDetailResult
     return(
       <div>
         <h1>{ Title }</h1>
@@ -43,7 +41,6 @@ export class Detail extends Component {
         <p> {Plot} </p>
         <ButtonBackToHome/>
       </div>
-
     )
   }
 }

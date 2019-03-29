@@ -7,9 +7,9 @@ import App from './App';
 //Redux
 import { createStore } from 'redux';
 import { Provider } from 'react-redux'
-import  { globalState }  from './reducers'
+import reducers  from './reducers/index'
 
-const store = createStore(globalState)
+const store = createStore(reducers)
 
 ReactDOM.render(
   <Provider store={store}>

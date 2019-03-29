@@ -15,7 +15,7 @@ export class Home extends Component {
   }
 
   _handleResults = (results) => {
-    this.props.togleSearch()
+    this.props.toggleSearch()
     this.props.updateResults(results)
   }
 
@@ -24,13 +24,13 @@ export class Home extends Component {
       <div>
         <Logo />
         <Title>Phone Luxury</Title>
-            <div className="search-for--Wrapper">
-              <SearchForm onResults={this._handleResults} />
-            </div>
-            {this.props.isUsedSearch
-            ? this._renderResults()
-            : <small>Use the form to search a movie</small>
-            }
+        <div className="search-for--Wrapper">
+          <SearchForm onResults={this._handleResults} />
+        </div>
+        {this.props.isUsedSearch
+        ? this._renderResults()
+        : <small>Use the form to search a movie</small>
+        }
       </div>
     )
   }

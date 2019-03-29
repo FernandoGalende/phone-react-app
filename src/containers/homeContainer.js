@@ -2,16 +2,14 @@ import { connect } from 'react-redux'
 import * as actions from '../actions'
 import { Home }  from '../pages/home'
 
-//la vuelta a las props del componente <----
 const mapStateToProps = (state, ownProps) => ({
-  isUsedSearch: state.usedSearch,
-  results: state.results
+  isUsedSearch: state.search.usedSearch,
+  results: state.search.results
 })
 
-//la ida al store -->
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
-    togleSearch: () => dispatch(actions.togleSearchAction()),
+    toggleSearch: () => dispatch(actions.toggleSearchAction()),
     updateResults: result => dispatch(actions.updateSearchResults(result))
   }
 }

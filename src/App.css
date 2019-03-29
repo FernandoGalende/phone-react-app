@@ -3,6 +3,10 @@
   text-align: center;
 }
 
+.App-logo{
+  width: 100px;
+}
+
 .search-for--Wrapper{
   display: flex;
   justify-content: center;
