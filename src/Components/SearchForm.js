@@ -3,7 +3,10 @@ import React, { Component } from 'react';
 const BASE_URL=process.env.REACT_APP_BASEURL
 
 export class SearchForm extends Component {
-
+  options = {
+    method: 'GET',
+    headers: { 'Access-Control-Allow-Origin': '*'}
+  }
   state = {
     inputMovie: ''
   }
@@ -14,12 +17,13 @@ export class SearchForm extends Component {
 
   _handleSubmit = (e) => {
     e.preventDefault()
-    const {inputMovie} = this.state
-    fetch(`${BASE_URL}s=${inputMovie}`)
+    // const {inputMovie} = this.state
+    fetch(`http://localhost:3000/phones`,this.options)
     .then( res => res.json() )
     .then( results => {
-       const { Search=[] } = results
-       this.props.onResults(Search)
+      console.log(results)
+       //const { Search=[] } = results
+       // this.props.onResults(Search)
     })
   }
 
