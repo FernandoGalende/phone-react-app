@@ -6,6 +6,11 @@ import { ButtonBackToHome } from '../Components/ButtonBackToHome'
 const BASE_URL=process.env.REACT_APP_BASEURL
 
 export class Detail extends Component {
+  options = {
+    method: 'GET',
+    headers: { 'Access-Control-Allow-Origin': '*'}
+  }
+
   static propTypes = {
     match: PropTypes.shape({
       params: PropTypes.object,
@@ -16,10 +21,10 @@ export class Detail extends Component {
   }
 
   _fetchPhone(id){
-    fetch(`${BASE_URL}i=${id.id}`)
+    fetch(`${BASE_URL}/phone/${id.id}`, this.options)
     .then( res => res.json() )
     .then( phone => {
-      this.props.updateResult(phone)
+      this.props.updateResult(phone[0])
     })
   }
 
@@ -29,16 +34,15 @@ export class Detail extends Component {
   }
 
   render(){
-    const { Title, Poster, Actors, Metascore, Plot, imdbID } = this.props.onDetailResult
+    const { title, image, description, id } = this.props.onDetailResult
     return(
       <div>
-        <h1>{ Title }</h1>
-        <img src={ Poster }
-          alt={ imdbID }
+        <h1 className="title-detail">{ title }</h1>
+        <img className="image-detail"
+          src={ image }
+          alt={ id }
           />
-        <h3>{Actors}</h3>
-        <span>{Metascore}</span>
-        <p> {Plot} </p>
+        <p className="description-detail"> { description } </p>
         <ButtonBackToHome/>
       </div>
     )

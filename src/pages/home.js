@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Logo from '../Components/Logo'
 import { PhoneList } from '../Components/PhoneList'
 import { SearchForm } from '../Components/SearchForm'
-import { Title } from '../Components/Tittle.component'
+import { Title } from '../Components/Title.component'
 
 export class Home extends Component {
    _renderResults = () => {
@@ -25,7 +25,7 @@ export class Home extends Component {
         <Logo />
         <Title>Phone Luxury</Title>
         <div className="search-for--Wrapper">
-          <SearchForm onResults={this._handleResults} />
+          <SearchForm onResults={ this._handleResults } />
         </div>
         {this.props.isUsedSearch
         ? this._renderResults()
@@ -34,5 +34,4 @@ export class Home extends Component {
       </div>
     )
   }
-
 }

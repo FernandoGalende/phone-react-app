@@ -7,9 +7,6 @@ export class SearchForm extends Component {
     method: 'GET',
     headers: { 'Access-Control-Allow-Origin': '*'}
   }
-  state = {
-    inputMovie: ''
-  }
 
   _handleChange = (e) => {
     this.setState({inputMovie: e.target.value})
@@ -17,29 +14,28 @@ export class SearchForm extends Component {
 
   _handleSubmit = (e) => {
     e.preventDefault()
-    // const {inputMovie} = this.state
-    fetch(`http://localhost:3000/phones`,this.options)
+
+    fetch(`${BASE_URL}/phones`,this.options)
     .then( res => res.json() )
     .then( results => {
-      console.log(results)
-       //const { Search=[] } = results
-       // this.props.onResults(Search)
+       this.props.onResults( results.data )
     })
   }
 
   render () {
     return(
-      <form onSubmit={this._handleSubmit}>
+      <form onSubmit={ this._handleSubmit } id="search-form">
         <div className="field has-addons">
           <div className="control">
             <input
               className="input"
-              onChange={this._handleChange}
+              onChange={ this._handleChange }
               type="text"
               placeholder="Find a phone"/>
           </div>
           <div className="control">
-            <button className="button is-info">
+            <button id="search-button"
+              className="button is-info">
               Search
             </button>
           </div>

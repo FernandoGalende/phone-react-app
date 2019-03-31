@@ -14,16 +14,16 @@ export class PhoneList extends Component {
       <div className="PhonesList">
 
       {
-        phones.map(movie => {
+        phones.map(phone => {
           return (
             <div
-              key={movie.imdbID}
+              key={ phone.id }
               className="PhonesList-Item">
                 <Card
-                  id={movie.imdbID}
-                  title={movie.Title}
-                  year={movie.Year}
-                  image={movie.Poster}
+                  id = { phone.id }
+                  title = { phone.title }
+                  color = { phone.color }
+                  image = { phone.thumbnails }
                 />
             </div>
           )
