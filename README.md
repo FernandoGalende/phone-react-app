@@ -7,7 +7,7 @@ For unit testing I install jest & enzyme to ensure quality of the project.
 
 ## Getting Started
 
-You can serve the application locally in debug mode by running `npm run start`.
+You can serve the application locally in debug mode by running `npm run start` **Do not forget to run first `npm install`**
 
 Runs the app in the development mode.<br>
 Open [http://localhost:4200](http://localhost:4200) to view it in the browser.
