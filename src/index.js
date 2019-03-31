@@ -12,7 +12,7 @@ import reducers  from './reducers/index'
 const store = createStore(reducers)
 
 ReactDOM.render(
-  <Provider store={store}>
+  <Provider store = { store }>
     <Router>
       <App />
     </Router>
